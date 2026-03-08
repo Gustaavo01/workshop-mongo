@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
@@ -15,4 +16,5 @@ public class ResourceExceptionHandler {
         StandardError err = new StandardError(System.currentTimeMillis(), status.value(), "Não Encontrado",e.getMessage(),request.getRequestURI());
         return ResponseEntity.status(status).body(err);
     }
+
 }
